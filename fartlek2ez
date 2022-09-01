@@ -1,0 +1,2121 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoid/ui-libraries/main/venus/source.lua", true))()
+
+local main = library:Load({Name = " fartleks assassin shitter [VIP ACCESS]", Theme = "synapse", SizeX = 440, SizeY = 480, ColorOverrides = {}})
+local aimbot = main:Tab("assassin")
+local section = aimbot:Section({Name = "CREAMERS", column = 2})
+
+-- object:Hide()
+-- object:Show()
+
+local button = section:Button({Name = "creamy silent aim", Callback = function()
+end})
+
+
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoid/ui-libraries/main/venus/source.lua", true))()
+
+local main = library:Load({Name = "fartlek assassin shitter", Theme = "synapse", SizeX = 440, SizeY = 480, ColorOverrides = {}})
+local aimbot = main:Tab("assassin")
+local section = aimbot:Section({Name = "CREAMERS", column = 1})
+
+-- object:Hide()
+-- object:Show()
+
+local button = section:Button({Name = "silent aim", Callback = function()local Player = game:GetService("Players").LocalPlayer
+local Camera = game:GetService("Workspace").CurrentCamera
+local Mouse = game:GetService("Players").LocalPlayer:GetMouse()
+
+FOV_Circle = Drawing.new("Circle")
+FOV_Circle.Color = Color3.fromRGB(0,0,255)
+FOV_Circle.Thickness = 2.5
+FOV_Circle.NumSides = 500
+FOV_Circle.Radius = 125
+FOV_Circle.Visible = false
+FOV_Circle.Filled = false
+
+game:GetService('RunService').Stepped:connect(function()
+    FOV_Circle.Position = Vector2.new(Mouse.X, Mouse.Y + 37)
+end)
+
+local function ClosestPlayerToCursor()
+    local Closest = nil
+    local Distance = 9e9
+    for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+        if v ~= Player then
+            if Workspace[v.Name]:FindFirstChild("Humanoid") and Workspace[v.Name].Humanoid.Health ~= 0 then
+                local Position = Camera:WorldToViewportPoint(Workspace[v.Name].HumanoidRootPart.Position)
+                local Magnitude = (Vector2.new(Position.X, Position.Y) - Vector2.new(Mouse.X, Mouse.Y)).Magnitude
+                if Magnitude < Distance and Magnitude < FOV_Circle.Radius then
+                    Closest = Workspace[v.Name]
+                    Distance = Magnitude
+                end
+            end
+        end
+    end
+    return Closest
+end
+
+_G.Toggle = false
+spawn(function()
+    game:GetService('RunService').RenderStepped:connect(function()
+        pcall(function()
+            if _G.Toggle then
+                for i, v in pairs(game:GetService("Workspace").KnifeHost.PowerUps:GetDescendants()) do
+                    if v:IsA("Part") then
+                        v.Archivable = false
+                    end
+                end
+            end
+        end)
+    end)
+end)
+
+
+spawn(function()
+    game:GetService('RunService').RenderStepped:connect(function()
+        pcall(function()
+            if _G.Toggle then
+                for i, v in pairs(game:GetService("Workspace").KnifeHost:GetDescendants()) do
+                    if v:IsA("Part") then
+                        if v.Archivable == true then
+                            local PlayerPosition = ClosestPlayerToCursor().baseHitbox.CFrame
+                            v.CFrame = PlayerPosition
+                        end
+                    end
+                end
+            end
+        end)
+    end)
+end)
+
+spawn(function()
+    pcall(function()
+        Mouse.KeyDown:Connect(function(key)
+            if key == "f" and _G.Toggle == false then
+                _G.Toggle = true
+                FOV_Circle.Visible = true
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "Semen Aim";
+                    Text = "shitter enables";
+                    Duration = 2;
+                })
+            elseif key == "f" and _G.Toggle == true then
+                _G.Toggle = false
+                FOV_Circle.Visible = false
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "Semen Aim";
+                    Text = "shitter disabled";
+                    Duration = 2;
+                })
+            end
+        end)
+    end)
+end)
+end})
+
+local button = section:Button({Name = "fov(if killed press this again)", Callback = function()Workspace.CurrentCamera.FieldOfView = 100
+end})
+
+local button = section:Button({Name = "noclip", Callback = function()local ScreenGui = Instance.new("ScreenGui")
+local mainframe = Instance.new("Frame")
+local Bossorlose13sGUI = Instance.new("TextLabel")
+local Noclip = Instance.new("TextButton")
+local Fly = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+mainframe.Name = "mainframe"
+mainframe.Parent = ScreenGui
+mainframe.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+mainframe.BorderColor3 = Color3.fromRGB(0, 0, 0)
+mainframe.Position = UDim2.new(0.135501355, 0, 0.306020081, 0)
+mainframe.Size = UDim2.new(0, 282, 0, 180)
+
+Bossorlose13sGUI.Name = "fartlek noclip"
+Bossorlose13sGUI.Parent = mainframe
+Bossorlose13sGUI.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Bossorlose13sGUI.Size = UDim2.new(0, 282, 0, 22)
+Bossorlose13sGUI.Font = Enum.Font.SourceSans
+Bossorlose13sGUI.Text = "fartleks gui"
+Bossorlose13sGUI.TextColor3 = Color3.fromRGB(255, 0, 0)
+Bossorlose13sGUI.TextSize = 14.000
+
+Noclip.Name = "Noclip"
+Noclip.Parent = mainframe
+Noclip.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Noclip.Position = UDim2.new(0.0283687934, 0, 0.294444442, 0)
+Noclip.Size = UDim2.new(0, 77, 0, 22)
+Noclip.Font = Enum.Font.SourceSans
+Noclip.Text = "Noclip"
+Noclip.TextColor3 = Color3.fromRGB(0, 0, 0)
+Noclip.TextSize = 14.000
+Noclip.MouseButton1Down:connect(function()
+	local noclip = true char = game.Players.LocalPlayer.Character while true do if noclip == true then for _,v in pairs(char:children()) do pcall(function() if v.className == "Part" then v.CanCollide = false elseif v.ClassName == "Model" then v.Head.CanCollide = false end end) end end game:service("RunService").Stepped:wait() end
+end)
+end})
+
+local button = section:Button({Name = "inf jump", Callback = function()local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local Frame = Instance.new("Frame")
+local INFJUMP = Instance.new("TextButton")
+local TextLabel_2 = Instance.new("TextLabel")
+ 
+--Properties:
+ 
+ScreenGui.Parent = game.CoreGui
+ 
+main.Name = "main"
+main.Parent = ScreenGui
+main.Active = true
+main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+main.BorderSizePixel = 0
+main.Position = UDim2.new(0.119258665, 0, 0, 0)
+main.Size = UDim2.new(0, 146, 0, 28)
+main.Active = true
+main.Draggable = false
+ 
+TextLabel.Parent = main
+TextLabel.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(0, 146, 0, 28)
+TextLabel.Font = Enum.Font.SciFi
+TextLabel.Text = "Misc"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 17.000
+TextLabel.TextWrapped = true
+ 
+Frame.Parent = main
+Frame.BackgroundColor3 = Color3.fromRGB(86, 86, 86)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0, 0, 1, 0)
+Frame.Size = UDim2.new(0, 146, 0, 61)
+ 
+INFJUMP.Name = "INFJUMP"
+INFJUMP.Parent = main
+INFJUMP.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+INFJUMP.BorderSizePixel = 0
+INFJUMP.Position = UDim2.new(0.794520497, 0, 1.6785717, 0)
+INFJUMP.Size = UDim2.new(0, 21, 0, 21)
+INFJUMP.Font = Enum.Font.SourceSans
+INFJUMP.Text = ""
+INFJUMP.TextColor3 = Color3.fromRGB(0, 0, 0)
+INFJUMP.TextSize = 14.000
+INFJUMP.MouseButton1Down:connect(function()
+local Player = game:GetService'Players'.LocalPlayer;
+local UIS = game:GetService'UserInputService';
+ 
+_G.JumpHeight = 50;
+ 
+function Action(Object, Function) if Object ~= nil then Function(Object); end end
+ 
+UIS.InputBegan:connect(function(UserInput)
+    if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.Space then
+        Action(Player.Character.Humanoid, function(self)
+            if self:GetState() == Enum.HumanoidStateType.Jumping or self:GetState() == Enum.HumanoidStateType.Freefall then
+                Action(self.Parent.HumanoidRootPart, function(self)
+                    self.Velocity = Vector3.new(0, _G.JumpHeight, 0);
+                end)
+            end
+        end)
+    end
+end)
+end)
+ 
+TextLabel_2.Parent = main
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.0547945201, 0, 1.57142854, 0)
+TextLabel_2.Size = UDim2.new(0, 94, 0, 28)
+TextLabel_2.Font = Enum.Font.SciFi
+TextLabel_2.Text = "Inf jump"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 17.000
+TextLabel_2.TextWrapped = true
+ 
+-- Scripts:
+ 
+local function TKDWQ_fake_script() -- INFJUMP.LocalScript 
+local script = Instance.new('LocalScript', INFJUMP)
+ 
+function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
+ 
+counter = 0
+ 
+while wait(0.1)do
+script.Parent.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
+ 
+counter = counter + 0.01
+end
+end
+coroutine.wrap(TKDWQ_fake_script)()
+end})
+
+local button = section:Button({Name = "walkspeed", Callback = function()function enter(player)
+	wait(2)
+	local plr = game.Workspace:FindFirstChild(player.Name)
+	if plr then
+		local char = plr
+		char.Humanoid.WalkSpeed = 33
+	end
+end
+game.Players.ChildAdded:connect(enter)
+end})
+
+local button = section:Button({Name = "autothrow", Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/ryleyx/autothrow/main/autothrow",true))();
+end})
+
+local button = section:Button({Name = "fake lag by ghostplaya", Callback = function()loadstring(game:HttpGet('https://pastebin.com/raw/VM3b0Thg'))()
+end})
+
+local section = aimbot:Section({Name = "map mods", column = 1})
+
+-- object:Hide()
+-- object:Show()
+
+local button = section:Button({Name = "no textures", Callback = function()--[[ Subscribe to Zaptosis on YouTube for more awesome scripts!
+ 
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+███▀▀▀███░░░░░░░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░██░░░░░░░░░
+█▀░░░███░░░░░░░░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+▀░░░███░░▄█▀██▄░▀████████▄██████░░▄██▀██▄░▄██▀██████░░▄██▀███
+░░░███░░██░░░██░░░██░░░▀██░░██░░░██▀░░░▀████░░░▀▀░██░░██░░░▀▀
+░░███░░░▄▄█████░░░██░░░░██░░██░░░██░░░░░██▀█████▄░██░░▀█████▄
+░███░░░▄██░░░██░░░██░░░▄██░░██░░░██▄░░░▄███▄░░░██░██░░█▄░░░██
+█████████████▀██▄░██████▀░░░▀████░▀█████▀░██████▀████▄██████▀
+░░░░░░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░▄████▄░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+]]
+_G.Settings = {
+    Players = {
+        ["Ignore Me"] = true, -- Ignore your Character
+        ["Ignore Others"] = true-- Ignore other Characters
+    },
+    Meshes = {
+        Destroy = false, -- Destroy Meshes
+        LowDetail = true -- Low detail meshes (NOT SURE IT DOES ANYTHING)
+    },
+    Images = {
+        Invisible = true, -- Invisible Images
+        LowDetail = false, -- Low detail images (NOT SURE IT DOES ANYTHING)
+        Destroy = false, -- Destroy Images
+    },
+    ["No Particles"] = true, -- Disables all ParticleEmitter, Trail, Smoke, Fire and Sparkles
+    ["No Camera Effects"] = true, -- Disables all PostEffect's (Camera/Lighting Effects)
+    ["No Explosions"] = true, -- Makes Explosion's invisible
+    ["No Clothes"] = true, -- Removes Clothing from the game
+    ["Low Water Graphics"] = true, -- Removes Water Quality
+    ["No Shadows"] = true, -- Remove Shadows
+    ["Low Rendering"] = true, -- Lower Rendering
+    ["Low Quality Parts"] = true -- Lower quality parts
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/FPSBooster.lua"))()
+end})
+
+local button = section:Button({Name = "xray", Callback = function()local xrayHotkey = Enum.KeyCode.E
+
+local uis = game:GetService("UserInputService")
+end})
+
+local button = section:Button({Name = "full bright", Callback = function()--[[ Subscribe to Zaptosis on YouTube for more awesome scripts!
+ 
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+███▀▀▀███░░░░░░░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░██░░░░░░░░░
+█▀░░░███░░░░░░░░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+▀░░░███░░▄█▀██▄░▀████████▄██████░░▄██▀██▄░▄██▀██████░░▄██▀███
+░░░███░░██░░░██░░░██░░░▀██░░██░░░██▀░░░▀████░░░▀▀░██░░██░░░▀▀
+░░███░░░▄▄█████░░░██░░░░██░░██░░░██░░░░░██▀█████▄░██░░▀█████▄
+░███░░░▄██░░░██░░░██░░░▄██░░██░░░██▄░░░▄███▄░░░██░██░░█▄░░░██
+█████████████▀██▄░██████▀░░░▀████░▀█████▀░██████▀████▄██████▀
+░░░░░░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░▄████▄░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+]]
+
+local Light = game:GetService("Lighting")
+
+function dofullbright()
+Light.Ambient = Color3.new(1, 1, 1)
+Light.ColorShift_Bottom = Color3.new(1, 1, 1)
+Light.ColorShift_Top = Color3.new(1, 1, 1)
+end
+
+dofullbright()
+
+Light.LightingChanged:Connect(dofullbright)
+end})
+
+local button = section:Button({Name = "RTX shaders", Callback = function()-- Credits to Instance Serializer for helping me convert the Tokyowami shrine whatever thing to luau
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
+local Bloom = Instance.new("BloomEffect")
+Bloom.Intensity = 0.1
+Bloom.Threshold = 0
+Bloom.Size = 100
+
+local Tropic = Instance.new("Sky")
+Tropic.Name = "Tropic"
+Tropic.SkyboxUp = "http://www.roblox.com/asset/?id=169210149"
+Tropic.SkyboxLf = "http://www.roblox.com/asset/?id=169210133"
+Tropic.SkyboxBk = "http://www.roblox.com/asset/?id=169210090"
+Tropic.SkyboxFt = "http://www.roblox.com/asset/?id=169210121"
+Tropic.StarCount = 100
+Tropic.SkyboxDn = "http://www.roblox.com/asset/?id=169210108"
+Tropic.SkyboxRt = "http://www.roblox.com/asset/?id=169210143"
+Tropic.Parent = Bloom
+
+local Sky = Instance.new("Sky")
+Sky.SkyboxUp = "http://www.roblox.com/asset/?id=196263782"
+Sky.SkyboxLf = "http://www.roblox.com/asset/?id=196263721"
+Sky.SkyboxBk = "http://www.roblox.com/asset/?id=196263721"
+Sky.SkyboxFt = "http://www.roblox.com/asset/?id=196263721"
+Sky.CelestialBodiesShown = false
+Sky.SkyboxDn = "http://www.roblox.com/asset/?id=196263643"
+Sky.SkyboxRt = "http://www.roblox.com/asset/?id=196263721"
+Sky.Parent = Bloom
+
+Bloom.Parent = game:GetService("Lighting")
+
+local Bloom = Instance.new("BloomEffect")
+Bloom.Enabled = false
+Bloom.Intensity = 0.35
+Bloom.Threshold = 0.2
+Bloom.Size = 56
+
+local Tropic = Instance.new("Sky")
+Tropic.Name = "Tropic"
+Tropic.SkyboxUp = "http://www.roblox.com/asset/?id=169210149"
+Tropic.SkyboxLf = "http://www.roblox.com/asset/?id=169210133"
+Tropic.SkyboxBk = "http://www.roblox.com/asset/?id=169210090"
+Tropic.SkyboxFt = "http://www.roblox.com/asset/?id=169210121"
+Tropic.StarCount = 100
+Tropic.SkyboxDn = "http://www.roblox.com/asset/?id=169210108"
+Tropic.SkyboxRt = "http://www.roblox.com/asset/?id=169210143"
+Tropic.Parent = Bloom
+
+local Sky = Instance.new("Sky")
+Sky.SkyboxUp = "http://www.roblox.com/asset/?id=196263782"
+Sky.SkyboxLf = "http://www.roblox.com/asset/?id=196263721"
+Sky.SkyboxBk = "http://www.roblox.com/asset/?id=196263721"
+Sky.SkyboxFt = "http://www.roblox.com/asset/?id=196263721"
+Sky.CelestialBodiesShown = false
+Sky.SkyboxDn = "http://www.roblox.com/asset/?id=196263643"
+Sky.SkyboxRt = "http://www.roblox.com/asset/?id=196263721"
+Sky.Parent = Bloom
+
+Bloom.Parent = game:GetService("Lighting")
+local Blur = Instance.new("BlurEffect")
+Blur.Size = 2
+
+Blur.Parent = game:GetService("Lighting")
+local Efecto = Instance.new("BlurEffect")
+Efecto.Name = "Efecto"
+Efecto.Enabled = false
+Efecto.Size = 2
+
+Efecto.Parent = game:GetService("Lighting")
+local Inaritaisha = Instance.new("ColorCorrectionEffect")
+Inaritaisha.Name = "Inari taisha"
+Inaritaisha.Saturation = 0.05
+Inaritaisha.TintColor = Color3.fromRGB(255, 224, 219)
+
+Inaritaisha.Parent = game:GetService("Lighting")
+local Normal = Instance.new("ColorCorrectionEffect")
+Normal.Name = "Normal"
+Normal.Enabled = false
+Normal.Saturation = -0.2
+Normal.TintColor = Color3.fromRGB(255, 232, 215)
+
+Normal.Parent = game:GetService("Lighting")
+local SunRays = Instance.new("SunRaysEffect")
+SunRays.Intensity = 0.05
+
+SunRays.Parent = game:GetService("Lighting")
+local Sunset = Instance.new("Sky")
+Sunset.Name = "Sunset"
+Sunset.SkyboxUp = "rbxassetid://323493360"
+Sunset.SkyboxLf = "rbxassetid://323494252"
+Sunset.SkyboxBk = "rbxassetid://323494035"
+Sunset.SkyboxFt = "rbxassetid://323494130"
+Sunset.SkyboxDn = "rbxassetid://323494368"
+Sunset.SunAngularSize = 14
+Sunset.SkyboxRt = "rbxassetid://323494067"
+
+Sunset.Parent = game:GetService("Lighting")
+local Takayama = Instance.new("ColorCorrectionEffect")
+Takayama.Name = "Takayama"
+Takayama.Enabled = false
+Takayama.Saturation = -0.3
+Takayama.Contrast = 0.1
+Takayama.TintColor = Color3.fromRGB(235, 214, 204)
+
+Takayama.Parent = game:GetService("Lighting")
+local L = game:GetService("Lighting")
+L.Brightness = 2.14
+L.ColorShift_Bottom = Color3.fromRGB(11, 0, 20)
+L.ColorShift_Top = Color3.fromRGB(240, 127, 14)
+L.OutdoorAmbient = Color3.fromRGB(34, 0, 49)
+L.ClockTime = 6.7
+L.FogColor = Color3.fromRGB(94, 76, 106)
+L.FogEnd = 1000
+L.FogStart = 0
+L.ExposureCompensation = 0.24
+L.ShadowSoftness = 0
+L.Ambient = Color3.fromRGB(59, 33, 27)
+
+local Bloom = Instance.new("BloomEffect")
+Bloom.Intensity = 0.1
+Bloom.Threshold = 0
+Bloom.Size = 100
+
+local Tropic = Instance.new("Sky")
+Tropic.Name = "Tropic"
+Tropic.SkyboxUp = "http://www.roblox.com/asset/?id=169210149"
+Tropic.SkyboxLf = "http://www.roblox.com/asset/?id=169210133"
+Tropic.SkyboxBk = "http://www.roblox.com/asset/?id=169210090"
+Tropic.SkyboxFt = "http://www.roblox.com/asset/?id=169210121"
+Tropic.StarCount = 100
+Tropic.SkyboxDn = "http://www.roblox.com/asset/?id=169210108"
+Tropic.SkyboxRt = "http://www.roblox.com/asset/?id=169210143"
+Tropic.Parent = Bloom
+
+local Sky = Instance.new("Sky")
+Sky.SkyboxUp = "http://www.roblox.com/asset/?id=196263782"
+Sky.SkyboxLf = "http://www.roblox.com/asset/?id=196263721"
+Sky.SkyboxBk = "http://www.roblox.com/asset/?id=196263721"
+Sky.SkyboxFt = "http://www.roblox.com/asset/?id=196263721"
+Sky.CelestialBodiesShown = false
+Sky.SkyboxDn = "http://www.roblox.com/asset/?id=196263643"
+Sky.SkyboxRt = "http://www.roblox.com/asset/?id=196263721"
+Sky.Parent = Bloom
+
+Bloom.Parent = game:GetService("Lighting")
+
+local Bloom = Instance.new("BloomEffect")
+Bloom.Enabled = false
+Bloom.Intensity = 0.35
+Bloom.Threshold = 0.2
+Bloom.Size = 56
+
+local Tropic = Instance.new("Sky")
+Tropic.Name = "Tropic"
+Tropic.SkyboxUp = "http://www.roblox.com/asset/?id=169210149"
+Tropic.SkyboxLf = "http://www.roblox.com/asset/?id=169210133"
+Tropic.SkyboxBk = "http://www.roblox.com/asset/?id=169210090"
+Tropic.SkyboxFt = "http://www.roblox.com/asset/?id=169210121"
+Tropic.StarCount = 100
+Tropic.SkyboxDn = "http://www.roblox.com/asset/?id=169210108"
+Tropic.SkyboxRt = "http://www.roblox.com/asset/?id=169210143"
+Tropic.Parent = Bloom
+
+local Sky = Instance.new("Sky")
+Sky.SkyboxUp = "http://www.roblox.com/asset/?id=196263782"
+Sky.SkyboxLf = "http://www.roblox.com/asset/?id=196263721"
+Sky.SkyboxBk = "http://www.roblox.com/asset/?id=196263721"
+Sky.SkyboxFt = "http://www.roblox.com/asset/?id=196263721"
+Sky.CelestialBodiesShown = false
+Sky.SkyboxDn = "http://www.roblox.com/asset/?id=196263643"
+Sky.SkyboxRt = "http://www.roblox.com/asset/?id=196263721"
+Sky.Parent = Bloom
+
+Bloom.Parent = game:GetService("Lighting")
+local Blur = Instance.new("BlurEffect")
+Blur.Size = 2
+
+Blur.Parent = game:GetService("Lighting")
+local Efecto = Instance.new("BlurEffect")
+Efecto.Name = "Efecto"
+Efecto.Enabled = false
+Efecto.Size = 2
+
+Efecto.Parent = game:GetService("Lighting")
+local Inaritaisha = Instance.new("ColorCorrectionEffect")
+Inaritaisha.Name = "Inari taisha"
+Inaritaisha.Saturation = 0.05
+Inaritaisha.TintColor = Color3.fromRGB(255, 224, 219)
+
+Inaritaisha.Parent = game:GetService("Lighting")
+local Normal = Instance.new("ColorCorrectionEffect")
+Normal.Name = "Normal"
+Normal.Enabled = false
+Normal.Saturation = -0.2
+Normal.TintColor = Color3.fromRGB(255, 232, 215)
+
+Normal.Parent = game:GetService("Lighting")
+local SunRays = Instance.new("SunRaysEffect")
+SunRays.Intensity = 0.05
+
+SunRays.Parent = game:GetService("Lighting")
+local Sunset = Instance.new("Sky")
+Sunset.Name = "Sunset"
+Sunset.SkyboxUp = "rbxassetid://323493360"
+Sunset.SkyboxLf = "rbxassetid://323494252"
+Sunset.SkyboxBk = "rbxassetid://323494035"
+Sunset.SkyboxFt = "rbxassetid://323494130"
+Sunset.SkyboxDn = "rbxassetid://323494368"
+Sunset.SunAngularSize = 14
+Sunset.SkyboxRt = "rbxassetid://323494067"
+
+Sunset.Parent = game:GetService("Lighting")
+local Takayama = Instance.new("ColorCorrectionEffect")
+Takayama.Name = "Takayama"
+Takayama.Enabled = false
+Takayama.Saturation = -0.3
+Takayama.Contrast = 0.1
+Takayama.TintColor = Color3.fromRGB(235, 214, 204)
+
+Takayama.Parent = game:GetService("Lighting")
+local L = game:GetService("Lighting")
+L.Brightness = 2.14
+L.ColorShift_Bottom = Color3.fromRGB(11, 0, 20)
+L.ColorShift_Top = Color3.fromRGB(240, 127, 14)
+L.OutdoorAmbient = Color3.fromRGB(34, 0, 49)
+L.ClockTime = 6.7
+L.FogColor = Color3.fromRGB(94, 76, 106)
+L.FogEnd = 1000
+L.FogStart = 0
+L.ExposureCompensation = 0.24
+L.ShadowSoftness = 0
+L.Ambient = Color3.fromRGB(59, 33, 27)
+
+
+
+
+end})
+
+local section = aimbot:Section({Name = "other guis(idk if they work)", column = 2})
+
+-- object:Hide()
+-- object:Show()
+
+local button = section:Button({Name = "Attablocks gui", Callback = function()loadstring(game:HttpGet('https://raw.githubusercontent.com/bockatta/Atta/main/Assassin%20Shitter'))();
+end})
+
+local button = section:Button({Name = "spritzsploit gui", Callback = function()local old = getrenv().gcinfo
+
+getrenv().gcinfo = function(...)
+
+    return wait(9e9)
+
+end
+
+local section = aimbot:Section({Name = "Section", column = 2})
+
+
+_G.Toggle = false
+
+_G.Toggle2 = false
+
+_G.autofarmtoggle = false
+
+
+
+local noclip = false
+
+local Camera = game:GetService("Workspace").CurrentCamera;
+
+local Mouse = game:GetService("Players").LocalPlayer:GetMouse();
+
+local Players = game:GetService("Players");
+
+local Player = Players.LocalPlayer;
+
+local CoreGui = game.CoreGui
+
+local ContentProvider = game.ContentProvider
+
+local RobloxGuis = {"RobloxGui", "TeleportGui", "RobloxPromptGui", "RobloxLoadingGui", "PlayerList", "RobloxNetworkPauseNotification", "PurchasePrompt", "HeadsetDisconnectedDialog", "ThemeProvider", "DevConsoleMaster"}
+
+getgenv().noclip = false 
+
+
+
+FOV_Circle = Drawing.new("Circle");
+
+FOV_Circle.Color = Color3.fromRGB(255,255,255);
+
+FOV_Circle.Thickness = 1.5;
+
+FOV_Circle.NumSides = 13;
+
+FOV_Circle.Radius = 150;
+
+FOV_Circle.Visible = false;
+
+FOV_Circle.Filled = false;
+
+
+
+FOV_Circle2 = Drawing.new("Circle");
+
+FOV_Circle2.Color = Color3.fromRGB(255,255,255);
+
+FOV_Circle2.Thickness = 1.5;
+
+FOV_Circle2.NumSides = 13;
+
+FOV_Circle2.Radius = 150;
+
+FOV_Circle2.Visible = false;
+
+FOV_Circle2.Filled = false;
+
+
+
+game:GetService('RunService').Stepped:connect(function()
+
+    FOV_Circle.Position = Vector2.new(Mouse.X, Mouse.Y + 37)
+
+end)
+
+
+
+game:GetService('RunService').Stepped:connect(function()
+
+    FOV_Circle2.Position = Vector2.new(Mouse.X, Mouse.Y + 37)
+
+end)
+
+
+
+game:GetService("UserInputService").InputBegan:Connect(function(input)
+
+    if input.UserInputType == Enum.UserInputType.MouseButton1 and _G.Toggle == true then
+
+        
+
+        task.wait(.35);
+
+    
+
+        local function ClosestPlayerToCursor()
+
+            local Closest = nil;
+
+            local Distance = 9e9;
+
+            for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+
+                if v ~= Player then
+
+                    if Workspace[v.Name]:FindFirstChild("Humanoid") and Workspace[v.Name].Humanoid.Health ~= 0 then
+
+                        local Position = Camera:WorldToViewportPoint(Workspace[v.Name].HumanoidRootPart.Position);
+
+                        local Magnitude = (Vector2.new(Position.X, Position.Y) - Vector2.new(Mouse.X, Mouse.Y)).Magnitude;
+
+                        if Magnitude < Distance and Magnitude < FOV_Circle.Radius then
+
+                            Closest = workspace[v.Name];
+
+                            Distance = Magnitude;
+
+                        end
+
+                    end
+
+                end
+
+            end
+
+            return Closest
+
+        end
+
+
+
+        local ThrowAtTarget = function(args1, args2, args3)
+
+            return game:GetService("ReplicatedStorage").Remotes.ThrowKnife:FireServer(args1,args2,args3);
+
+        end
+
+        
+
+        ThrowAtTarget(workspace[ClosestPlayerToCursor().Name].Head.Position, 0, CFrame.new());
+
+        
+
+    end
+
+end)
+
+
+
+function GetTime(Distance, Speed)
+
+    local Time = Distance / Speed
+
+    return Time
+
+end
+
+
+
+function spritzTween(targetpart,spritzspeed)
+
+    local Speed = spritzspeed  local Distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - targetpart.Position).magnitude local Time = GetTime(Distance, Speed) local TweenService = game:GetService("TweenService") local spritzttable = TweenInfo.new( Time, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,  0, false, 0 ) local Tween = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart,spritzttable,{CFrame = targetpart.CFrame}) Tween:Play()
+
+end 
+
+
+
+local function FilterTable(tbl)
+
+    local context = syn_context_get()
+
+    syn_context_set(7)
+
+    local new = {}
+
+    for i,v in ipairs(tbl) do --roblox iterates the array part
+
+        if typeof(v) ~= "Instance" then
+
+            table.insert(new, v)
+
+        else
+
+            if v == CoreGui or v == game then
+
+                --insert only the default roblox guis
+
+                for i,v in pairs(RobloxGuis) do
+
+                    local gui = CoreGui:FindFirstChild(v)
+
+                    if gui then
+
+                        table.insert(new, gui)
+
+                    end
+
+                end
+
+
+
+                if v == game then
+
+                    for i,v in pairs(game:GetChildren()) do
+
+                        if v ~= CoreGui then
+
+                            table.insert(new, v)
+
+                        end
+
+                    end
+
+                end
+
+            else
+
+                if not CoreGui:IsAncestorOf(v) then
+
+                    table.insert(new, v)
+
+                else
+
+                    --don't insert it if it's a descendant of a different gui than default roblox guis
+
+                    for j,k in pairs(RobloxGuis) do
+
+                        local gui = CoreGui:FindFirstChild(k)
+
+                        if gui then
+
+                            if v == gui or gui:IsAncestorOf(v) then
+
+                                table.insert(new, v)
+
+                                break
+
+                            end
+
+                        end
+
+                    end
+
+                end
+
+            end
+
+        end
+
+    end
+
+    syn_context_set(context)
+
+    return new
+
+end
+
+
+
+local old
+
+old = hookfunc(ContentProvider.PreloadAsync, function(self, tbl, cb)
+
+    if self ~= ContentProvider or type(tbl) ~= "table" or type(cb) ~= "function" then --note: callback can be nil but in that case it's useless anyways
+
+        return old(self, tbl, cb)
+
+    end
+
+
+
+    --check for any errors that I might've missed (such as table being {[2] = "something"} which causes "Unable to cast to Array")
+
+    local err
+
+    task.spawn(function() --TIL pcalling a C yield function inside a C yield function is a bad idea ("cannot resume non-suspended coroutine")
+
+        local s,e = pcall(old, self, tbl)
+
+        if not s and e then
+
+            err = e
+
+        end
+
+    end)
+
+   
+
+    if err then
+
+        return old(self, tbl) --don't pass the callback, just in case
+
+    end
+
+
+
+    tbl = FilterTable(tbl)
+
+    return old(self, tbl, cb)
+
+end)
+
+
+
+local old
+
+old = hookmetamethod(game, "__namecall", function(self, ...)
+
+    local method = getnamecallmethod()
+
+    if self == ContentProvider and (method == "PreloadAsync" or method == "preloadAsync") then
+
+        local args = {...}
+
+        if type(args[1]) ~= "table" or type(args[2]) ~= "function" then
+
+            return old(self, ...)
+
+        end
+
+
+
+        local err
+
+        task.spawn(function()
+
+            setnamecallmethod(method) --different thread, different namecall method
+
+            local s,e = pcall(old, self, args[1])
+
+            if not s and e then
+
+                err = e
+
+            end
+
+        end)
+
+
+
+        if err then
+
+            return old(self, args[1])
+
+        end
+
+
+
+        args[1] = FilterTable(args[1])
+
+        setnamecallmethod(method)
+
+        return old(self, args[1], args[2])
+
+    end
+
+    return old(self, ...)
+
+end)
+
+
+
+local mt = getrawmetatable(game);
+
+make_writeable(mt);
+
+local old_index = mt.__index;
+
+
+
+mt.__index = function(a, b)
+
+if tostring(a) == "HumanoidRootPart" then
+
+if tostring(b) == "Size" then
+
+return Vector3.new(2, 2, 1);
+
+end
+
+end
+
+return old_index(a, b);
+
+end
+
+
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "SpritzSploit [ASSASSIN] Dev Access", HidePremium = false, SaveConfig = true, ConfigFolder = "🥸", IntroEnabled = false})
+
+local CombatTab = Window:MakeTab({
+
+    Name = "Combat",
+
+    PremiumOnly = false
+
+})
+
+CombatTab:AddToggle({
+
+    Name = "Silent Aim",
+
+    Default = false,
+
+    Callback = function(Value)
+
+        _G.Toggle = Value
+
+    end
+
+})
+
+local AutoTab = Window:MakeTab({
+
+    Name = "Auto",
+
+    PremiumOnly = false
+
+})
+
+AutoTab:AddToggle({
+
+    Name = "Auto Farm",
+
+    Default = false,
+
+    Callback = function(Value)
+
+        _G.autofarmtoggle = Value
+
+        noclip = Value
+
+    end
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "Hitbox",
+
+	PremiumOnly = false
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "Hitbox Settings"
+
+})
+
+Tab:AddToggle({
+
+	Name = "Hitbox Expander",
+
+	Default = false,
+
+	Callback = function(Value)
+
+	if Value == true then
+
+	    getgenv().OFFON = true
+
+	    getgenv().ReSizeXCV = getgenv().SizeXCV
+
+	    getgenv().TransparencyXCV = 0.7
+
+	    getgenv().ColourXCV = Color3.fromRGB(163, 162, 165)
+
+	    else
+
+	        if Value == false then
+
+	            getgenv().OFFON = false
+
+	            getgenv().SizeXCVs = Vector3.new(2,2,1)
+
+	            getgenv().TransparencyXCV = 1
+
+	            getgenv().ColourXCV = Color3.fromRGB(163, 162, 165)
+
+	end
+
+        end
+
+	end    
+
+})
+
+Tab:AddSlider({
+
+	Name = "Hitbox Size",
+
+	Min = 0,
+
+	Max = 100,
+
+	Default = 2,
+
+	Color = Color3.fromRGB(255,255,255),
+
+	Increment = 1,
+
+	ValueName = "Hitbox",
+
+	Callback = function(Value)
+
+	    if getgenv().OFFON == true then do
+
+		getgenv().SizeXCV = Vector3.new(Value,Value,Value)
+
+		getgenv().ReSizeXCV = SizeXCV
+
+		end
+
+	    end
+
+end
+
+})
+
+Tab:AddColorpicker({
+
+	Name = "Hitbox Colour",
+
+	Default = Color3.fromRGB(255, 0, 0),
+
+	Callback = function(Value)
+
+	    if getgenv().OFFON == true then do
+
+		getgenv().ColourXCV = Value
+
+	    end
+
+	end
+
+	end	  
+
+})
+
+local VisTab = Window:MakeTab({
+
+    Name = "Visuals",
+
+    PremiumOnly = false
+
+})
+
+VisTab:AddToggle({
+
+    Name = "Fov Toggle",
+
+    Default = false,
+
+    Callback = function(Value)
+
+        FOV_Circle.Visible = Value
+
+    end
+
+})
+
+VisTab:AddSlider({
+
+	Name = "FOV Size",
+
+	Min = 0,
+
+	Max = 300,
+
+	Default = 150,
+
+	Color = Color3.fromRGB(255,255,255),
+
+	Increment = 1,
+
+	ValueName = "Size",
+
+	Callback = function(Value)
+
+        FOV_Circle.Radius = Value
+
+        FOV_Circle2.Radius = Value
+
+    end
+
+})
+
+local MiscTab = Window:MakeTab({
+
+	Name = "Misc",
+
+	PremiumOnly = false
+
+})
+
+
+
+MiscTab:AddButton({
+
+	Name = "Server Hop",
+
+	Callback = function()
+
+      		game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+
+  	end    
+
+})
+
+
+
+local LocalTab = Window:MakeTab({
+
+    Name = "Local Player",
+
+    premiumOnly = false
+
+})
+
+
+
+getgenv().Infjump = false
+
+LocalTab:AddToggle({
+
+    Name = "Infinite Jump",
+
+    Default = false,
+
+    Callback = function(Value)
+
+        Infjump = Value
+
+    end
+
+})
+
+
+
+LocalTab:AddToggle({
+
+    Name = "Noclip",
+
+    Default = false,
+
+    Callback = function(Value)
+
+        noclip = Value
+
+    end
+
+})
+
+
+
+spawn(function()
+
+    game:GetService('RunService').RenderStepped:connect(function()
+
+        pcall(function()
+
+            while _G.autofarmtoggle == true do
+
+                spritzTween(game.Workspace[game.Players.LocalPlayer.PlayerGui.ScreenGui:WaitForChild("UI"):WaitForChild("Target"):WaitForChild("TargetText").Text].HumanoidRootPart,30)
+
+                game.workspace.Gravity = 0
+
+                wait(0.1)
+
+            end
+
+        end)
+
+    end)
+
+end)
+
+
+
+spawn(function()
+
+    game:GetService('RunService').RenderStepped:connect(function()
+
+        pcall(function()      
+
+            while _G.autofarmtoggle == true do
+
+                wait(0.8)
+
+                mouse1click()
+
+            end
+
+        end)
+
+    end)
+
+end)
+
+
+
+spawn(function()
+
+    game:GetService('RunService').RenderStepped:connect(function()
+
+        pcall(function()
+
+            while _G.autofarmtoggle == false do
+
+                if _G.autofarmtoggle == false then
+
+                    game.workspace.Gravity = 196.2
+
+                end
+
+                wait(10)
+
+            end
+
+        end)
+
+    end)
+
+end)
+
+
+
+spawn(function()
+
+    game:GetService('RunService').RenderStepped:connect(function()
+
+        pcall(function()
+
+            if _G.Toggle2 then
+
+                for i, v in pairs(game:GetService("Workspace").KnifeHost.PowerUps:GetDescendants()) do
+
+                    if v:IsA("Part") then
+
+                        v.Archivable = false
+
+                    end
+
+                end
+
+            end
+
+        end)
+
+    end)
+
+end)
+
+
+
+spawn(function()
+
+    game:GetService('RunService').RenderStepped:connect(function()
+
+        pcall(function()
+
+            if _G.Toggle2 then
+
+                for i, v in pairs(game:GetService("Workspace").KnifeHost:GetDescendants()) do
+
+                    if v:IsA("Part") then
+
+                        if v.Archivable == true then
+
+                            local PlayerPosition = ClosestPlayerToCursor().baseHitbox.CFrame
+
+                            v.CFrame = PlayerPosition
+
+                        end
+
+                    end
+
+                end
+
+            end
+
+        end)
+
+    end)
+
+end)
+
+
+
+spawn(function()
+
+    game:GetService('RunService').RenderStepped:connect(function()
+
+        char = game.Players.LocalPlayer.Character 
+
+        while noclip do 
+
+            for _,v in pairs(char:children()) do 
+
+                pcall(function() if v.className == "Part" then v.CanCollide = false elseif v.ClassName == "Model" then
+
+                v.Head.CanCollide = false end end) 
+
+            end 
+
+            game:service("RunService").Stepped:wait() 
+
+        end
+
+    end)
+
+end)
+
+
+
+spawn(function()
+
+    game:GetService('RunService').RenderStepped:connect(function()
+
+        game:GetService("UserInputService").JumpRequest:Connect(function()
+
+            if Infjump then
+
+                game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+
+            end
+
+        end)
+
+    end)
+
+end)
+
+
+
+spawn(function()
+
+    game:GetService('RunService').RenderStepped:connect(function()
+
+for i,v in pairs(game:GetService('Players'):GetPlayers()) do
+
+    if v.Name ~= game.Players.LocalPlayer.Name then
+
+game.Workspace[v.Name].HumanoidRootPart.Size = SizeXCV
+
+game.Workspace[v.Name].HumanoidRootPart.Transparency = TransparencyXCV or SizeXCVs
+
+game.Workspace[v.Name].HumanoidRootPart.Color = ColourXCV
+
+game.Workspace[v.Name].HumanoidRootPart.Material = "Neon"
+
+game.Workspace[v.Name].HumanoidRootPart.CanCollide = false
+
+wait()
+
+end
+
+end
+
+end)
+
+end)
+end})
+
+local button = section:Button({Name = "barcode[+]", Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/IIIlllIIIAlt/Assassin-Free/main/free%20Barcode-obfuscated.lua"))()
+end})
+
+local button = section:Button({Name = "A7assassin", Callback = function()loadstring(game:HttpGet('https://raw.githubusercontent.com/bockatta/Shitter/main/Loader'))();
+end})
+
+local section = aimbot:Section({Name = "ramdom shit", column = 2})
+
+-- object:Hide()
+-- object:Show()
+
+local button = section:Button({Name = "simple script by alek", Callback = function()-- Simple
+-- by isaraw8912
+
+-- INSTRUCTIONS !!!
+
+-- Press F to Fly
+-- Press E to NoClip
+-- Click TP Hotkey : CTRL
+-- Press R to uninfinite jump
+
+-- prints
+
+print("Thank you for using Simple")
+
+-- Notification - Loaded |
+
+game:GetService("StarterGui"):SetCore("SendNotification",{
+            Title = "Simple";
+            Text = "Made by isaraw8912";
+                    })
+
+-- Instances:
+
+local Simple = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local noclip = Instance.new("TextButton")
+local clicktp = Instance.new("TextButton")
+local tpto = Instance.new("TextButton")
+local infjump = Instance.new("TextButton")
+local btools = Instance.new("TextButton")
+local jumppower = Instance.new("TextButton")
+local jpframe = Instance.new("Frame")
+local jpinput = Instance.new("TextBox")
+local setjp = Instance.new("TextButton")
+local rejp = Instance.new("TextButton")
+local title = Instance.new("TextLabel")
+local walkspeed = Instance.new("TextButton")
+local wsframe = Instance.new("Frame")
+local wsinput = Instance.new("TextBox")
+local setws = Instance.new("TextButton")
+local rews = Instance.new("TextButton")
+local close = Instance.new("TextButton")
+local fly = Instance.new("TextButton")
+local open = Instance.new("TextButton")
+local jpclose = Instance.new("TextButton")
+local wsclose = Instance.new("TextButton")
+local tpframe = Instance.new("Frame")
+local tpinput = Instance.new("TextBox")
+local settp = Instance.new("TextButton")
+local tpclose = Instance.new("TextButton")
+
+--Properties:
+
+Simple.Name = "Simple"
+Simple.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+main.Name = "main"
+main.Parent = Simple
+main.Active = true
+main.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+main.Position = UDim2.new(0.382422805, 0, 0.292828679, 0)
+main.Size = UDim2.new(0, 349, 0, 287)
+main.Draggable = true
+
+noclip.Name = "noclip"
+noclip.Parent = main
+noclip.BackgroundColor3 = Color3.fromRGB(170, 170, 255)
+noclip.Position = UDim2.new(0.0658583343, 0, 0.198759019, 0)
+noclip.Size = UDim2.new(0, 119, 0, 40)
+noclip.Font = Enum.Font.SourceSans
+noclip.Text = "NoClip"
+noclip.TextColor3 = Color3.fromRGB(0, 0, 0)
+noclip.TextScaled = true
+noclip.TextSize = 14.000
+noclip.TextWrapped = true
+noclip.MouseButton1Click:Connect(function()
+	game:GetService('RunService').Stepped:connect(function()
+if noclip then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+end
+end)
+plr = game.Players.LocalPlayer
+mouse = plr:GetMouse()
+mouse.KeyDown:connect(function(key)
+
+if key == "e" then
+noclip = not noclip
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+end
+end)
+	noclip.Text = "Loaded!"
+    noclip.TextColor3 = Color3.fromRGB(0, 255, 50)
+    wait(2)
+    noclip.TextColor3 = Color3.fromRGB(0, 0, 0)
+    noclip.Text = "NoClip"
+end)
+
+clicktp.Name = "clicktp"
+clicktp.Parent = main
+clicktp.BackgroundColor3 = Color3.fromRGB(170, 170, 255)
+clicktp.Position = UDim2.new(0.588318229, 0, 0.198759019, 0)
+clicktp.Size = UDim2.new(0, 119, 0, 40)
+clicktp.Font = Enum.Font.SourceSans
+clicktp.Text = "Click TP"
+clicktp.TextColor3 = Color3.fromRGB(0, 0, 0)
+clicktp.TextScaled = true
+clicktp.TextSize = 14.000
+clicktp.TextWrapped = true
+clicktp.MouseButton1Click:Connect(function()
+	noclip = false
+local UIS = game:GetService("UserInputService")
+local Player = game.Players.LocalPlayer
+local Mouse = Player:GetMouse()
+
+
+function GetCharacter()
+   return game.Players.LocalPlayer.Character
+end
+
+function Teleport(pos)
+   local Char = GetCharacter()
+   if Char then
+       Char:MoveTo(pos)
+   end
+end
+
+
+UIS.InputBegan:Connect(function(input)
+   if input.UserInputType == Enum.UserInputType.MouseButton1 and UIS:IsKeyDown(Enum.KeyCode.LeftControl) then
+       Teleport(Mouse.Hit.p)
+   end
+end)
+	clicktp.Text = "Loaded!"
+    clicktp.TextColor3 = Color3.fromRGB(0, 255, 50)
+    wait(2)
+    clicktp.TextColor3 = Color3.fromRGB(0, 0, 0)
+    clicktp.Text = "Click TP"
+end)
+
+tpto.Name = "tpto"
+tpto.Parent = main
+tpto.BackgroundColor3 = Color3.fromRGB(170, 170, 255)
+tpto.Position = UDim2.new(0.588318229, 0, 0.411871731, 0)
+tpto.Size = UDim2.new(0, 119, 0, 41)
+tpto.Font = Enum.Font.SourceSans
+tpto.Text = "Teleport To"
+tpto.TextColor3 = Color3.fromRGB(0, 0, 0)
+tpto.TextScaled = true
+tpto.TextSize = 14.000
+tpto.TextWrapped = true
+tpto.MouseButton1Click:Connect(function()
+	tpframe.Visible = true
+	infjump.Visible = false
+	jumppower.Visible = false
+	walkspeed.Visible = false
+	btools.Visible = false
+	fly.Visible = false
+end)
+
+tpclose.Name = "tpclose"
+tpclose.Parent = tpframe
+tpclose.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+tpclose.Position = UDim2.new(0.92929244, 0, 0, 0)
+tpclose.Size = UDim2.new(0, 24, 0, 24)
+tpclose.Font = Enum.Font.SourceSans
+tpclose.Text = "X"
+tpclose.TextColor3 = Color3.fromRGB(255, 255, 255)
+tpclose.TextScaled = true
+tpclose.TextSize = 14.000
+tpclose.TextWrapped = true
+tpclose.MouseButton1Click:Connect(function()
+	tpframe.Visible = false
+	infjump.Visible = true
+	jumppower.Visible = true
+	walkspeed.Visible = true
+	btools.Visible = true
+	fly.Visible = true
+end)
+
+tpframe.Name = "tpframe"
+tpframe.Parent = tpto
+tpframe.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+tpframe.BorderSizePixel = 0
+tpframe.Position = UDim2.new(-1.72255921, 0, -1.77698445, 0)
+tpframe.Size = UDim2.new(0, 348, 0, 240)
+tpframe.Visible = false
+
+tpinput.Name = "tpinput"
+tpinput.Parent = tpframe
+tpinput.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+tpinput.Position = UDim2.new(0.209770113, 0, 0.174999997, 0)
+tpinput.Size = UDim2.new(0, 200, 0, 50)
+tpinput.Font = Enum.Font.SourceSans
+tpinput.Text = "Full Player Username"
+tpinput.TextColor3 = Color3.fromRGB(255, 255, 255)
+tpinput.TextSize = 22.000
+
+settp.Name = "settp"
+settp.Parent = tpframe
+settp.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
+settp.Position = UDim2.new(0.304597706, 0, 0.470833331, 0)
+settp.Size = UDim2.new(0, 135, 0, 50)
+settp.Font = Enum.Font.SourceSans
+settp.Text = "Teleport"
+settp.TextColor3 = Color3.fromRGB(85, 0, 127)
+settp.TextSize = 14.000
+settp.MouseButton1Click:Connect(function()
+	local Victim = tpinput.Text
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[Victim].Character.HumanoidRootPart.CFrame
+    settp.Text = "Teleported!"
+    settp.TextColor3 = Color3.fromRGB(0, 255, 50)
+    wait(2)
+    settp.TextColor3 = Color3.fromRGB(255, 255, 255)
+    settp.Text = "Teleport"
+end)
+
+infjump.Name = "infjump"
+infjump.Parent = main
+infjump.BackgroundColor3 = Color3.fromRGB(170, 170, 255)
+infjump.Position = UDim2.new(0.0658583343, 0, 0.411871731, 0)
+infjump.Size = UDim2.new(0, 119, 0, 41)
+infjump.Font = Enum.Font.SourceSans
+infjump.Text = "Infinite Jump"
+infjump.TextColor3 = Color3.fromRGB(0, 0, 0)
+infjump.TextScaled = true
+infjump.TextSize = 14.000
+infjump.TextWrapped = true
+infjump.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/HQsQysa8", true))()
+	infjump.Text = "Loaded!"
+    infjump.TextColor3 = Color3.fromRGB(0, 255, 50)
+    wait(2)
+    infjump.TextColor3 = Color3.fromRGB(0, 0, 0)
+    infjump.Text = "Infinite Jump"
+end)
+
+btools.Name = "btools"
+btools.Parent = main
+btools.BackgroundColor3 = Color3.fromRGB(170, 170, 255)
+btools.Position = UDim2.new(0.588318229, 0, 0.621999919, 0)
+btools.Size = UDim2.new(0, 119, 0, 38)
+btools.Font = Enum.Font.SourceSans
+btools.Text = "BTools"
+btools.TextColor3 = Color3.fromRGB(0, 0, 0)
+btools.TextScaled = true
+btools.TextSize = 14.000
+btools.TextWrapped = true
+btools.MouseButton1Click:Connect(function()
+	game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
+for index, child in pairs(game:GetService("Workspace"):GetChildren()) do
+   if child.ClassName == "Part" then
+       child.Locked = false
+   end
+   if child.ClassName == "MeshPart" then
+       child.Locked = false
+   end
+   if child.ClassName == "UnionOperation" then
+       child.Locked = false
+   end
+   if child.ClassName == "Model" then
+       for index, chil in pairs(child:GetChildren()) do
+           if chil.ClassName == "Part" then
+               chil.Locked = false
+           end
+           if chil.ClassName == "MeshPart" then
+               chil.Locked = false
+           end
+           if chil.ClassName == "UnionOperation" then
+               chil.Locked = false
+           end
+           if chil.ClassName == "Model" then
+               for index, childe in pairs(chil:GetChildren()) do
+                   if childe.ClassName == "Part" then
+                       childe.Locked = false
+                   end
+                   if childe.ClassName == "MeshPart" then
+                       childe.Locked = false
+                   end
+                   if childe.ClassName == "UnionOperation" then
+                       childe.Locked = false
+                   end
+                   if childe.ClassName == "Model" then
+                       for index, childeo in pairs(childe:GetChildren()) do
+                           if childeo.ClassName == "Part" then
+                               childeo.Locked = false
+                           end
+                           if childeo.ClassName == "MeshPart" then
+                               childeo.Locked = false
+                           end
+                           if childeo.ClassName == "UnionOperation" then
+                               childeo.Locked = false
+                           end
+                           if childeo.ClassName == "Model" then
+                           end
+                       end
+                   end
+               end
+           end
+       end
+   end
+end
+c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+c.BinType = Enum.BinType.Hammer
+c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+c.BinType = Enum.BinType.Clone
+c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+c.BinType = Enum.BinType.Grab
+    btools.Text = "Loaded!"
+    btools.TextColor3 = Color3.fromRGB(0, 255, 50)
+    wait(2)
+    btools.TextColor3 = Color3.fromRGB(0, 0, 0)
+    btools.Text = "BTools"
+end)
+
+jumppower.Name = "jumppower"
+jumppower.Parent = main
+jumppower.BackgroundColor3 = Color3.fromRGB(170, 170, 255)
+jumppower.Position = UDim2.new(0.0658583343, 0, 0.621999919, 0)
+jumppower.Size = UDim2.new(0, 119, 0, 42)
+jumppower.Font = Enum.Font.SourceSans
+jumppower.Text = "Jump Power"
+jumppower.TextColor3 = Color3.fromRGB(0, 0, 0)
+jumppower.TextScaled = true
+jumppower.TextSize = 14.000
+jumppower.TextWrapped = true
+jumppower.MouseButton1Click:Connect(function()
+	jpframe.Visible = true
+	walkspeed.Visible = false
+	fly.Visible = false
+end)
+
+jpframe.Name = "jpframe"
+jpframe.Parent = jumppower
+jpframe.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+jpframe.BorderSizePixel = 0
+jpframe.Position = UDim2.new(-0.19314754, 0, -3.15096831, 0)
+jpframe.Size = UDim2.new(0, 348, 0, 240)
+jpframe.Visible = false
+
+jpclose.Name = "jpclose"
+jpclose.Parent = jpframe
+jpclose.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+jpclose.Position = UDim2.new(0.92929244, 0, 0, 0)
+jpclose.Size = UDim2.new(0, 24, 0, 24)
+jpclose.Font = Enum.Font.SourceSans
+jpclose.Text = "X"
+jpclose.TextColor3 = Color3.fromRGB(255, 255, 255)
+jpclose.TextScaled = true
+jpclose.TextSize = 14.000
+jpclose.TextWrapped = true
+jpclose.MouseButton1Click:Connect(function()
+	walkspeed.Visible = true
+	fly.Visible = true
+	jpframe.Visible = false
+end)
+
+jpinput.Name = "jpinput"
+jpinput.Parent = jpframe
+jpinput.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+jpinput.Position = UDim2.new(0.209770113, 0, 0.174999997, 0)
+jpinput.Size = UDim2.new(0, 200, 0, 50)
+jpinput.Font = Enum.Font.SourceSans
+jpinput.Text = "Power Value"
+jpinput.TextColor3 = Color3.fromRGB(255, 255, 255)
+jpinput.TextSize = 22.000
+
+setjp.Name = "setjp"
+setjp.Parent = jpframe
+setjp.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
+setjp.Position = UDim2.new(0.0632183924, 0, 0.470833331, 0)
+setjp.Size = UDim2.new(0, 135, 0, 50)
+setjp.Font = Enum.Font.SourceSans
+setjp.Text = "Set Jump Power"
+setjp.TextColor3 = Color3.fromRGB(85, 0, 127)
+setjp.TextSize = 14.000
+setjp.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = jpinput.Text
+end)
+
+rejp.Name = "rejp"
+rejp.Parent = jpframe
+rejp.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
+rejp.Position = UDim2.new(0.537356317, 0, 0.470833331, 0)
+rejp.Size = UDim2.new(0, 136, 0, 50)
+rejp.Font = Enum.Font.SourceSans
+rejp.Text = "Reset Jump Power"
+rejp.TextColor3 = Color3.fromRGB(85, 0, 127)
+rejp.TextSize = 14.000
+rejp.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+end)
+
+title.Name = "title"
+title.Parent = main
+title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+title.BackgroundTransparency = 1.000
+title.Position = UDim2.new(0.211408243, 0, -0.00288046151, 0)
+title.Size = UDim2.new(0, 200, 0, 47)
+title.Font = Enum.Font.Highway
+title.Text = "Simple"
+title.TextColor3 = Color3.fromRGB(0, 255, 255)
+title.TextScaled = true
+title.TextSize = 14.000
+title.TextWrapped = true
+
+walkspeed.Name = "walkspeed"
+walkspeed.Parent = main
+walkspeed.BackgroundColor3 = Color3.fromRGB(170, 170, 255)
+walkspeed.Position = UDim2.new(0.0658583343, 0, 0.817121804, 0)
+walkspeed.Size = UDim2.new(0, 119, 0, 42)
+walkspeed.Font = Enum.Font.SourceSans
+walkspeed.Text = "Walk Speed"
+walkspeed.TextColor3 = Color3.fromRGB(0, 0, 0)
+walkspeed.TextScaled = true
+walkspeed.TextSize = 14.000
+walkspeed.TextWrapped = true
+walkspeed.MouseButton1Click:Connect(function()
+	wsframe.Visible = true
+	fly.Visible = false
+end)
+
+wsframe.Name = "wsframe"
+wsframe.Parent = walkspeed
+wsframe.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+wsframe.BorderSizePixel = 0
+wsframe.Position = UDim2.new(-0.201550901, 0, -4.48430157, 0)
+wsframe.Size = UDim2.new(0, 348, 0, 240)
+wsframe.Visible = false
+
+wsclose.Name = "wsclose"
+wsclose.Parent = wsframe
+wsclose.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+wsclose.Position = UDim2.new(0.92929244, 0, 0, 0)
+wsclose.Size = UDim2.new(0, 24, 0, 24)
+wsclose.Font = Enum.Font.SourceSans
+wsclose.Text = "X"
+wsclose.TextColor3 = Color3.fromRGB(255, 255, 255)
+wsclose.TextScaled = true
+wsclose.TextSize = 14.000
+wsclose.TextWrapped = true
+wsclose.MouseButton1Click:Connect(function()
+	wsframe.Visible = false
+	fly.Visible = true
+end)
+
+wsinput.Name = "wsinput"
+wsinput.Parent = wsframe
+wsinput.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+wsinput.Position = UDim2.new(0.209770113, 0, 0.174999997, 0)
+wsinput.Size = UDim2.new(0, 200, 0, 50)
+wsinput.Font = Enum.Font.SourceSans
+wsinput.Text = "Speed Value"
+wsinput.TextColor3 = Color3.fromRGB(255, 255, 255)
+wsinput.TextSize = 22.000
+
+setws.Name = "setws"
+setws.Parent = wsframe
+setws.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
+setws.Position = UDim2.new(0.0632183924, 0, 0.470833331, 0)
+setws.Size = UDim2.new(0, 135, 0, 50)
+setws.Font = Enum.Font.SourceSans
+setws.Text = "Set Walk Speed"
+setws.TextColor3 = Color3.fromRGB(85, 0, 127)
+setws.TextSize = 14.000
+setws.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = wsinput.Text
+end)
+
+rews.Name = "rews"
+rews.Parent = wsframe
+rews.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
+rews.Position = UDim2.new(0.537356317, 0, 0.470833331, 0)
+rews.Size = UDim2.new(0, 136, 0, 50)
+rews.Font = Enum.Font.SourceSans
+rews.Text = "Reset Walk Speed"
+rews.TextColor3 = Color3.fromRGB(85, 0, 127)
+rews.TextSize = 14.000
+rews.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end)
+
+close.Name = "close"
+close.Parent = main
+close.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+close.Position = UDim2.new(0.92929244, 0, 0, 0)
+close.Size = UDim2.new(0, 24, 0, 24)
+close.Font = Enum.Font.SourceSans
+close.Text = "X"
+close.TextColor3 = Color3.fromRGB(255, 255, 255)
+close.TextScaled = true
+close.TextSize = 14.000
+close.TextWrapped = true
+close.MouseButton1Click:Connect(function()
+	main.Visible = false
+	open.Visible = true
+end)
+
+fly.Name = "fly"
+fly.Parent = main
+fly.BackgroundColor3 = Color3.fromRGB(170, 170, 255)
+fly.Position = UDim2.new(0.587348342, 0, 0.817121804, 0)
+fly.Size = UDim2.new(0, 119, 0, 42)
+fly.Font = Enum.Font.SourceSans
+fly.Text = "Fly"
+fly.TextColor3 = Color3.fromRGB(0, 0, 0)
+fly.TextScaled = true
+fly.TextSize = 14.000
+fly.TextWrapped = true
+fly.MouseButton1Click:Connect(function()
+	repeat wait() 
+	until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Head") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid") 
+local mouse = game.Players.LocalPlayer:GetMouse() 
+repeat wait() until mouse
+local plr = game.Players.LocalPlayer 
+local torso = plr.Character.Head 
+local flying = false
+local deb = true 
+local ctrl = {f = 0, b = 0, l = 0, r = 0} 
+local lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+local maxspeed = 400 
+local speed = 5000 
+
+function Fly() 
+local bg = Instance.new("BodyGyro", torso) 
+bg.P = 9e4 
+bg.maxTorque = Vector3.new(9e9, 9e9, 9e9) 
+bg.cframe = torso.CFrame 
+local bv = Instance.new("BodyVelocity", torso) 
+bv.velocity = Vector3.new(0,0.1,0) 
+bv.maxForce = Vector3.new(9e9, 9e9, 9e9) 
+repeat wait() 
+plr.Character.Humanoid.PlatformStand = true 
+if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then 
+speed = speed+.5+(speed/maxspeed) 
+if speed > maxspeed then 
+speed = maxspeed 
+end 
+elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then 
+speed = speed-1 
+if speed < 0 then 
+speed = 0 
+end 
+end 
+if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then 
+bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r} 
+elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then 
+bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+else 
+bv.velocity = Vector3.new(0,0.1,0) 
+end 
+bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0) 
+until not flying 
+ctrl = {f = 0, b = 0, l = 0, r = 0} 
+lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+speed = 0 
+bg:Destroy() 
+bv:Destroy() 
+plr.Character.Humanoid.PlatformStand = false 
+end 
+mouse.KeyDown:connect(function(key) 
+if key:lower() == "f" then 
+if flying then flying = false 
+else 
+flying = true 
+Fly() 
+end 
+elseif key:lower() == "w" then 
+ctrl.f = 1 
+elseif key:lower() == "s" then 
+ctrl.b = -1 
+elseif key:lower() == "a" then 
+ctrl.l = -1 
+elseif key:lower() == "d" then 
+ctrl.r = 1 
+end 
+end) 
+mouse.KeyUp:connect(function(key) 
+if key:lower() == "w" then 
+ctrl.f = 0 
+elseif key:lower() == "s" then 
+ctrl.b = 0 
+elseif key:lower() == "a" then 
+ctrl.l = 0 
+elseif key:lower() == "d" then 
+ctrl.r = 0 
+end 
+end)
+Fly()
+    fly.Text = "Loaded!"
+    fly.TextColor3 = Color3.fromRGB(0, 255, 50)
+    wait(2)
+    fly.TextColor3 = Color3.fromRGB(0, 0, 0)
+    fly.Text = "Fly"
+end)
+
+open.Name = "open"
+open.Parent = Simple
+open.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+open.Position = UDim2.new(0, 0, 0.609974444, 0)
+open.Size = UDim2.new(0, 70, 0, 18)
+open.Visible = false
+open.Font = Enum.Font.SourceSans
+open.Text = "Open"
+open.TextColor3 = Color3.fromRGB(0, 255, 255)
+open.TextSize = 14.000
+open.MouseButton1Click:Connect(function()
+	main.Visible = true
+	open.Visible = false
+end)
+end})
+
+local aimbot = main:Tab("visuals/esp")
+
+local section = aimbot:Section({Name = "USES SYNAPSE DRAWING LIB", column = 1})
+
+-- object:Hide()
+-- object:Show()
+
+local button = section:Button({Name = "unamed esp", Callback = function()
+end})
+
+local aimbot = main:Tab("hitbox expander")
+
+local section = aimbot:Section({Name = "not done yet", column = 1})
+
+-- object:Hide()
+-- object:Show()
+
+local button = section:Button({Name = "Button", Callback = function()
+end})
+
+local button = section:Button({Name = "Button", Callback = function()
+end})
+
+local aimbot = main:Tab("autofarm")
+
+local section = aimbot:Section({Name = "CREDS TO N2", column = 1})
+
+-- object:Hide()
+-- object:Show()
+
+local button = section:Button({Name = "autofarm", Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/ryleyx/test/main/tester123",true))();
+end})
